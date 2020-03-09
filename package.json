@@ -1,165 +1,77 @@
 {
-	"name": "vertical-limit",
-	"displayName": "Vertical Limit",
-	"description": "Vertical Limit is a collection of commands to modify, select and navigate text blocks in order to unlock the full potential of working with multiple cursors.",
-	"version": "1.6.0",
+	"name": "vertical-jump",
+	"displayName": "Vertical Jump",
+	"description": "Move the cursor or selection to the begin or end of a text block.",
+	"version": "1.3.0",
 	"engines": {
 		"vscode": "^1.42.0"
 	},
 	"categories": [
 		"Other"
 	],
-	"publisher": "generik",
+	"publisher": "vertical-jump-publisher",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/generikvault/vertical-limit"
+		"url": "https://github.com/generikvault/vertical-jump"
 	},
 	"activationEvents": [
-		"onCommand:vertical-limit.moveCursorFirstBlockLine",
-		"onCommand:vertical-limit.moveCursorLastBlockLine",
-		"onCommand:vertical-limit.selectUntilBlockFirstLine",
-		"onCommand:vertical-limit.selectUntilBlockLastLine",
-		"onCommand:vertical-limit.insertCursorsUntilFirstBlockLine",
-		"onCommand:vertical-limit.insertCursorsUntilLastBlockLinee",
-		"onCommand:vertical-limit.enumerate",
-		"onCommand:vertical-limit.moveSelectionToNewFile",
-		"onCommand:vertical-limit.moveUnsavedFileToClipboard",
-		"onCommand:vertical-limit.compressLines",
-		"onCommand:vertical-limit.uncompressLines"
+		"onCommand:extension.vertical-jump.cursorBlockFirstLine",
+		"onCommand:extension.vertical-jump.cursorBlockLastLine",
+		"onCommand:extension.vertical-jump.cursorBlockFirstLineSelect",
+		"onCommand:extension.vertical-jump.cursorBlockLastLineSelect",
+		"onCommand:extension.vertical-jump.multiCursorBlockFirstLine",
+		"onCommand:extension.vertical-jump.multiCursorsBlockLastLine"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vertical-limit.moveCursorFirstBlockLine",
+				"command": "extension.vertical-jump.cursorBlockFirstLine",
 				"title": "Jump Cursor To First Line Of Block"
 			},
 			{
-				"command": "vertical-limit.moveCursorLastBlockLine",
+				"command": "extension.vertical-jump.cursorBlockLastLine",
 				"title": "Jump Cursor To Last Line Of Block"
 			},
 			{
-				"command": "vertical-limit.selectUntilBlockFirstLine",
+				"command": "extension.vertical-jump.cursorBlockFirstLineSelect",
 				"title": "Select Until First Line Of Block"
 			},
 			{
-				"command": "vertical-limit.selectUntilBlockLastLine",
+				"command": "extension.vertical-jump.cursorBlockLastLineSelect",
 				"title": "Select Until Last Line Of Block"
 			},
 			{
-				"command": "vertical-limit.insertCursorsUntilFirstBlockLine",
+				"command": "extension.vertical-jump.multiCursorBlockFirstLine",
 				"title": "Insert Cursors Until First Line Of Block"
 			},
 			{
-				"command": "vertical-limit.insertCursorsUntilLastBlockLine",
+				"command": "extension.vertical-jump.multiCursorsBlockLastLine",
 				"title": "Insert Cursors Until Last Line Of Block"
-			},
-			{
-				"command": "vertical-limit.enumerate",
-				"title": "Enumerate"
-			},
-			{
-				"command": "vertical-limit.moveSelectionToNewFile",
-				"title": "Moves the current selection to a new file"
-			},
-			{
-				"command": "vertical-limit.moveUnsavedFileToClipboard",
-				"title": "Moves the content of the current and unsaved file into the clipboard and closes the file"
-			},
-			{
-				"command": "vertical-limit.compressLines",
-				"title": "Compress following lines with the same prefix into a single line"
-			},
-			{
-				"command": "vertical-limit.uncompressLines",
-				"title": "Uncompress lines matching the prefix pattern into a line for each segment"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "vertical-limit.moveCursorFirstBlockLine",
+				"command": "extension.vertical-jump.cursorBlockFirstLine",
 				"key": "ctrl+up",
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "vertical-limit.moveCursorLastBlockLine",
+				"command": "extension.vertical-jump.cursorBlockLastLine",
 				"key": "ctrl+down",
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "vertical-limit.selectUntilBlockFirstLine",
+				"command": "extension.vertical-jump.cursorBlockFirstLineSelect",
 				"key": "ctrl+shift+up",
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "vertical-limit.selectUntilBlockLastLine",
+				"command": "extension.vertical-jump.cursorBlockLastLineSelect",
 				"key": "ctrl+shift+down",
 				"when": "editorTextFocus"
-			},
-			{
-				"command": "vertical-limit.enumerate",
-				"key": "alt+e",
-				"when": "editorTextFocus && !editorReadonly"
-			},
-			{
-				"command": "vertical-limit.moveSelectionToNewFile",
-				"key": "alt+n",
-				"when": "editorTextFocus && !editorReadonly"
-			},
-			{
-				"command": "vertical-limit.moveUnsavedFileToClipboard",
-				"key": "alt+x",
-				"when": "editorTextFocus && resourceScheme == untitled && !editorReadonly"
 			}
-		],
-		"menus": {
-			"commandPalette": [
-				{
-					"command": "vertical-limit.moveCursorFirstBlockLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.moveCursorLastBlockLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.selectUntilBlockFirstLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.selectUntilBlockLastLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.insertCursorsUntilFirstBlockLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.insertCursorsUntilLastBlockLine",
-					"when": "editorIsOpen"
-				},
-				{
-					"command": "vertical-limit.enumerate",
-					"when": "editorIsOpen && !editorReadonly"
-				},
-				{
-					"command": "vertical-limit.moveSelectionToNewFile",
-					"when": "editorIsOpen && !editorReadonly"
-				},
-				{
-					"command": "vertical-limit.moveUnsavedFileToClipboard",
-					"when": "editorIsOpen && resourceScheme == untitled && !editorReadonly"
-				},
-				{
-					"command": "vertical-limit.compressLines",
-					"when": "editorIsOpen && !editorReadonly"
-				},
-				{
-					"command": "vertical-limit.uncompressLines",
-					"when": "editorIsOpen && !editorReadonly"
-				}
-			]
-		}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
